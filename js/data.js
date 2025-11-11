@@ -1,12 +1,5 @@
 import { DESCRIPTIONS, MESSAGES, NAMES, PHOTOS_AMOUNT } from './constants.js';
-
-
-const getRandomInteger = (a, b) => {
-  const lower = Math.ceil(Math.min(a, b));
-  const upper = Math.floor(Math.max(a, b));
-  const result = Math.random() * (upper - lower + 1) + lower;
-  return Math.floor(result);
-};
+import { getRandomInteger } from './util.js';
 
 const generateSingleComment = () => ({
   id: getRandomInteger(10000, 1000000),
@@ -26,7 +19,7 @@ const generateComments = () => {
 
 const generatePhoto = (index) => ({
   id: index,
-  url: `photos/${index}.jpg`,
+  url: `photos/${index + 1}.jpg`,
   description: DESCRIPTIONS[getRandomInteger(0, DESCRIPTIONS.length - 1)],
   likes: getRandomInteger(15, 200),
   comments: generateComments(),
