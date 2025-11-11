@@ -52,9 +52,7 @@ console.log('третье задание');
 
 
 const getNumbers = (inputString) => {
-  console.log(inputString);
   const sourceString = String(inputString).replaceAll(' ', '');
-    console.log(parseInt(sourceString));
   let numbersString = '';
   for (let i = 0; i <= sourceString.length; i++) {
     const temp = parseInt(sourceString[i], 10);
