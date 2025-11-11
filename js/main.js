@@ -1,3 +1,5 @@
 import { generateStructure } from './data.js';
+import { renderPhotos } from './render-cards.js';
 
-console.log(generateStructure());
+const data = generateStructure();
+renderPhotos(data);
