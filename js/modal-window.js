@@ -42,7 +42,6 @@ const renderComments = () => {
 };
 
 export const openModal = ({url, description, comments, likes}) => {
-  console.log(comments);
   bigPictureNode.classList.remove('hidden');
   imageNode.src = url;
   imageNode.alt = description;
