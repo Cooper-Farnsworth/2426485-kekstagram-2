@@ -1,3 +1,4 @@
+
 const bigPictureNode = document.querySelector('.big-picture');
 const pictureCancelNode = document.querySelector('#picture-cancel');
 const imageNode = bigPictureNode.querySelector('.big-picture__img img');
