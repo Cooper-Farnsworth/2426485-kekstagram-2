@@ -1,5 +1,5 @@
-import './validation.js';
 import { isValid, resetValidation } from './validation.js';
+import { resetScale } from './scale.js';
 
 const formNode = document.querySelector('.img-upload__form');
 
@@ -17,6 +17,7 @@ const closeFormModal = () => {
   uploadModalNode.classList.add('hidden');
   formNode.reset();
   resetValidation();
+  resetScale();
 };
 
 const renderPreview = () => {

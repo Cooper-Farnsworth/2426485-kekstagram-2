@@ -1,5 +1,12 @@
 export const PHOTOS_AMOUNT = 25;
 export const MAX_HASHTAG_AMOUNT = 5;
+export const Scale = {
+  MIN : 25,
+  MAX : 100,
+  STEP : 25,
+  DEFAULT : 100,
+};
+
 
 export const DESCRIPTIONS = [
   'описание 1',
