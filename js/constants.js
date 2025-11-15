@@ -1,4 +1,5 @@
 export const PHOTOS_AMOUNT = 25;
+export const MAX_HASHTAG_AMOUNT = 5;
 
 export const DESCRIPTIONS = [
   'описание 1',
@@ -35,3 +36,8 @@ export const MESSAGES = [
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
+
+export const MAX_DESCRIPTION_LENGTH = 140;
+
+
+export const HASHTAG = /^#[ёа-яa-z0-9]{1,19}$/i;
