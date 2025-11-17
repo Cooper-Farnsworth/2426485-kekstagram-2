@@ -1,5 +1,6 @@
 import { isValid, resetValidation } from './validation.js';
 import { resetScale } from './scale.js';
+import './effects.js';
 
 const formNode = document.querySelector('.img-upload__form');
 
