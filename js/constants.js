@@ -133,4 +133,20 @@ export const EffectSettings = {
   },
 };
 
-//Для эффекта «Хром» — filter: grayscale(0..1) с шагом 0.1;
+
+export const INIT_SLIDER = {
+  range: {
+    min: 0,
+    max: 100,
+  },
+  start: 80,
+  connect: 'lower',
+  format: {
+    to: function (value) {
+      return parseFloat(value);
+    },
+    from: function (value) {
+      return parseFloat(value);
+    },
+  },
+};

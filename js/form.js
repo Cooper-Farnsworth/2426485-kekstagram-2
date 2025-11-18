@@ -1,24 +1,20 @@
 import { isValid, resetValidation } from './validation.js';
 import { resetScale } from './scale.js';
-import './effects.js';
+import { resetEffects } from './effects.js';
+import { showModal } from './util.js';
 
 const formNode = document.querySelector('.img-upload__form');
-
 const uploadFileNode = formNode.querySelector('#upload-file');
 const uploadModalNode = formNode.querySelector('.img-upload__overlay');
 const imagePreviewNode = formNode.querySelector('.img-upload__preview img');
 const closeModalNode = formNode.querySelector('#upload-cancel');
 
-
-const openFormModal = () => {
-  uploadModalNode.classList.remove('hidden');
-};
-
 const closeFormModal = () => {
-  uploadModalNode.classList.add('hidden');
+  showModal(uploadModalNode, false);
   formNode.reset();
   resetValidation();
   resetScale();
+  resetEffects();
 };
 
 const renderPreview = () => {
@@ -28,7 +24,7 @@ const renderPreview = () => {
 };
 
 uploadFileNode.addEventListener('change', () => {
-  openFormModal();
+  showModal(uploadModalNode);
   renderPreview();
 });
 
