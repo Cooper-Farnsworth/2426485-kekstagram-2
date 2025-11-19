@@ -1,6 +1,7 @@
+import { showModal } from './util.js';
 
 const bigPictureNode = document.querySelector('.big-picture');
-const pictureCancelNode = document.querySelector('#picture-cancel');
+const pictureCloseNode = document.querySelector('#picture-cancel');
 const imageNode = bigPictureNode.querySelector('.big-picture__img img');
 const captionNode = bigPictureNode.querySelector('.social__caption');
 const likesNode = bigPictureNode.querySelector('.likes-count');
@@ -43,7 +44,7 @@ const renderComments = () => {
 };
 
 export const openModal = ({url, description, comments, likes}) => {
-  bigPictureNode.classList.remove('hidden');
+  showModal(bigPictureNode);
   imageNode.src = url;
   imageNode.alt = description;
   captionNode.textContent = description;
@@ -56,12 +57,8 @@ export const openModal = ({url, description, comments, likes}) => {
   renderComments();
 };
 
-const closeModal = () => {
-  bigPictureNode.classList.add('hidden');
-};
-
-pictureCancelNode.addEventListener('click', () => {
-  closeModal();
+pictureCloseNode.addEventListener('click', () => {
+  showModal(bigPictureNode, false);
 });
 
 commentsLoaderNode.addEventListener('click', () => {
