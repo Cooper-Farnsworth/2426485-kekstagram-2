@@ -1,3 +1,6 @@
+import { TIMEOUT } from './constants.js';
+
+const dataErrorTemplate = document.querySelector('#data-error').content.querySelector('.data-error');
 const body = document.body;
 
 export const getRandomInteger = (a, b) => {
@@ -15,4 +18,12 @@ export const showModal = (modal, isShown = true) => {
     modal.classList.add('hidden');
     body.classList.remove('modal-open');
   }
+};
+
+export const renderError = () => {
+  const newAlert = dataErrorTemplate.cloneNode(true);
+  body.append(newAlert);
+  setTimeout(() => {
+    newAlert.remove();
+  }, TIMEOUT);
 };
