@@ -5,8 +5,15 @@ const picturesContainerNode = document.querySelector('.pictures');
 
 let localPhotos;
 
+const clearPhotos = () => {
+  picturesContainerNode.querySelectorAll('.picture').forEach((currentCard) => {
+    currentCard.remove();
+  });
+};
+
 export const renderPhotos = (photos) => {
   localPhotos = [...photos];
+  clearPhotos();
   const fragment = document.createDocumentFragment();
   photos.forEach(({url, description, comments, likes, id}) => {
     const newCard = cardTemplate.cloneNode(true);
