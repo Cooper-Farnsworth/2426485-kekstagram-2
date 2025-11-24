@@ -115,3 +115,9 @@ export const INIT_SLIDER = {
     },
   },
 };
+
+export const FILTERS = {
+  DEFAULT: 'filter-default',
+  RANDOM: 'filter-random',
+  DISCUSSED: 'filter-discussed'
+};
