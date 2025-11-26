@@ -28,6 +28,7 @@ export const renderError = () => {
   }, TIMEOUT);
 };
 
+//как это работает?
 export const debounce = (callback, timeoutDelay = 500) => {
   let timeoutId;
   return (...rest) => {
