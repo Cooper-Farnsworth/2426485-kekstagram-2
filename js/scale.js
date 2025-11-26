@@ -13,7 +13,6 @@ const render = () => {
 };
 
 minusNode.addEventListener('click', () => {
-//  currentScale = currentScale - Scale.STEP >= Scale.MIN ? currentScale - Scale.STEP : Scale.MIN;
   currentScale = Math.max(currentScale - Scale.STEP, Scale.MIN);
   render();
 });
@@ -28,4 +27,4 @@ export const resetScale = () => {
   render();
 };
 
-resetScale(); //присвоение дефолтного значения в value картинки при загрузке приложения (при первом открытии)
+resetScale();

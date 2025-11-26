@@ -1,3 +1,4 @@
+import { COMMENTS_STEP } from './constants.js';
 import { removeEscapeListener, setEscapeListener } from './escape-close-modal.js';
 import { showModal } from './util.js';
 
@@ -30,7 +31,7 @@ const renderLoaderButton = () => {
 
 const renderComments = () => {
   const fragment = document.createDocumentFragment();
-  localComments.splice(0, 5).forEach(({avatar, message, name}) => {
+  localComments.splice(0, COMMENTS_STEP).forEach(({avatar, message, name}) => {
     const newComment = socialCommentTemplate.cloneNode(true);
     const image = newComment.querySelector('.social__picture');
     image.src = avatar;

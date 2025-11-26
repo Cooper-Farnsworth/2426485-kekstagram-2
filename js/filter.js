@@ -1,6 +1,6 @@
-import { FILTERS } from './constants';
-import { renderPhotos } from './render-cards';
-import { debounce } from './util';
+import { FILTERS, RANDOM_COUNT } from './constants.js';
+import { renderPhotos } from './render-cards.js';
+import { debounce } from './util.js';
 
 const filtersNode = document.querySelector('.img-filters');
 const filtersFormNode = document.querySelector('.img-filters__form');
@@ -21,7 +21,7 @@ const setActiveButton = (clickedButton) => {
 
 const filterActions = {
   [FILTERS.DEFAULT]: () => localPhotos,
-  [FILTERS.RANDOM]: () => [...localPhotos].sort(() => Math.random() - 0.5).slice(0, 10),
+  [FILTERS.RANDOM]: () => [...localPhotos].sort(() => Math.random() - 0.5).slice(0, RANDOM_COUNT),
   [FILTERS.DISCUSSED]: () => [...localPhotos].sort((a, b) => b.comments.length - a.comments.length)
 };
 
@@ -30,7 +30,6 @@ filtersFormNode.addEventListener('click', ({target}) => {
   if (filter) {
     currentFilter = filter.id;
     setActiveButton(filter);
-    //Отфильтровать и отрисовать гтовый набор
     debouncedRender(filterActions[currentFilter]());
   }
 });

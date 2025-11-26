@@ -7,7 +7,6 @@ import { showFilters } from './filter.js';
 getData()
   .then((photos) => {
     renderPhotos(photos);
-    // подключение фильтров после подгрузки данных
     showFilters(photos);
   })
   .catch(() => {

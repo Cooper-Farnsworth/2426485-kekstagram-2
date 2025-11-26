@@ -121,3 +121,11 @@ export const FILTERS = {
   RANDOM: 'filter-random',
   DISCUSSED: 'filter-discussed'
 };
+
+export const SERVER_URL = 'https://31.javascript.htmlacademy.pro/kekstagram';
+export const GET_EP = '/data';
+export const POST_EP = '/';
+
+export const RANDOM_COUNT = 10;
+
+export const COMMENTS_STEP = 5;
