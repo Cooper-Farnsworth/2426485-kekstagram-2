@@ -1,3 +1,4 @@
+import { removeEscapeListener, setEscapeListener } from './escape-close-modal.js';
 import { showModal } from './util.js';
 
 const bigPictureNode = document.querySelector('.big-picture');
@@ -55,10 +56,14 @@ export const openModal = ({url, description, comments, likes}) => {
   localComments = [...comments];
   alreadyRenderedComments = 0;
   renderComments();
+  setEscapeListener(() => {
+    showModal(bigPictureNode, false);
+  });
 };
 
 pictureCloseNode.addEventListener('click', () => {
   showModal(bigPictureNode, false);
+  removeEscapeListener();
 });
 
 commentsLoaderNode.addEventListener('click', () => {

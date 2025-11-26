@@ -4,6 +4,7 @@ import { resetEffects } from './effects.js';
 import { showModal } from './util.js';
 import { renderPopup } from './popup.js';
 import { POPUPS, SUBMIT__TEXT } from './constants.js';
+import { removeEscapeListener, setEscapeListener } from './escape-close-modal.js';
 
 const formNode = document.querySelector('.img-upload__form');
 const uploadFileNode = formNode.querySelector('#upload-file');
@@ -11,6 +12,8 @@ const uploadModalNode = formNode.querySelector('.img-upload__overlay');
 const imagePreviewNode = formNode.querySelector('.img-upload__preview img');
 const closeModalNode = formNode.querySelector('#upload-cancel');
 const submitButtonNode = formNode.querySelector('#upload-submit');
+const descriptionNode = document.querySelector('.text__description');
+const hashtagNode = document.querySelector('.text__hashtags');
 
 const closeFormModal = () => {
   showModal(uploadModalNode, false);
@@ -19,6 +22,8 @@ const closeFormModal = () => {
   resetScale();
   resetEffects();
 };
+
+const checkClosePossibility = () => !(document.activeElement === hashtagNode || document.activeElement === descriptionNode);
 
 const renderPreview = () => {
   const file = uploadFileNode.files[0];
@@ -29,11 +34,13 @@ const renderPreview = () => {
 uploadFileNode.addEventListener('change', () => {
   showModal(uploadModalNode);
   renderPreview();
+  setEscapeListener(closeFormModal, checkClosePossibility);
 });
 
 closeModalNode.addEventListener('click', (evt) => {
   evt.preventDefault();
   closeFormModal();
+  removeEscapeListener();
 });
 
 const blockSubmitButton = (isBlocked = true) => {
