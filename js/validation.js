@@ -35,8 +35,8 @@ const isUnique = (value) => {
     return true;
   }
   const hashtags = getHashtags(value);
-  const unique = [...new Set(hashtags)];
-  return hashtags.length === unique.length;
+  const uniqueHashtags = [...new Set(hashtags)];
+  return hashtags.length === uniqueHashtags.length;
 };
 
 validation.addValidator(
